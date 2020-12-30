@@ -1,0 +1,17 @@
+/.bundle
+/vendor
+
+# OS-specific
+.DS_Store
+
+# Vagrant
+.vagrant/
+.envrc
+
+# Terraform
+*.tfstate*
+**/.terraform/*
+terraform.log
+
+# Docker
+docker.env
