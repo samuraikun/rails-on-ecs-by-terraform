@@ -2,10 +2,13 @@
 
 ## Docker
 
-``sh
+```sh
 $ docker-compose up --no-start
+```
 
-# Dockerにログオン
+## Dockerにログオン
+
+```
 $ docker-compose run terraform sh
 
 $ cd /usr/src/terraform/envs/development/ # productionの場合は cd /usr/src/terraform/envs/production
