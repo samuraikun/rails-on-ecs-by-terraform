@@ -11,6 +11,7 @@
 # Terraform
 *.tfstate*
 **/.terraform/*
+**/.terraform.lock.hcl
 terraform.log
 
 # Docker
