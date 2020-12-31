@@ -65,3 +65,39 @@ variable "vpc" {
     }
   }
 }
+
+variable "ecs_web" {
+  type = map
+  default = {
+    log_retention_in_days              = 7
+    ecr_image                          = "464352955943.dkr.ecr.ap-northeast-1.amazonaws.com/rails-api:latest"
+    cpu                                = 256
+    memory                             = 512
+    host_port                          = 80
+    container_port                     = 80
+    desired_count                      = 1
+    deployment_minimum_healthy_percent = 100
+    deployment_maximum_percent         = 200
+    health_check_path                  = "/health_check"
+    # scale_out_by_cpu                   = 80
+    # scale_in_by_cpu                    = 30
+    # scale_out_by_memory                = 80
+    # scale_in_by_memory                 = 30
+    # max_capacity                       = 2
+    # min_capacity                       = 1
+    # certificate_arn                    = ""
+    deregistration_delay               = 0
+  }
+}
+
+variable "server_secrets" {
+  type = list
+  default = [
+    "AWS_DEFAULT_REGION",
+    "AWS_SECRET_ACCESS_KEY",
+    "RAILS_LOG_TO_STDOUT",
+    "RAILS_MAX_THREADS",
+    "SSM_AGENT_CODE",
+    "SSM_AGENT_ID"
+  ]
+}
