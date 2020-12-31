@@ -1,26 +1,26 @@
-resource "aws_security_group" "default" {
-  name        = "default"
-  description = "default VPC security group"
-  vpc_id      = aws_vpc.app_network.id
+# resource "aws_security_group" "default" {
+#   name        = "default"
+#   description = "default VPC security group"
+#   vpc_id      = aws_vpc.app_network.id
 
-  ingress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    self            = true
-  }
+#   ingress {
+#     from_port       = 0
+#     to_port         = 0
+#     protocol        = "-1"
+#     self            = true
+#   }
 
-  egress {
-    from_port       = 0
-    to_port         = 0
-    protocol        = "-1"
-    cidr_blocks     = ["0.0.0.0/0"]
-  }
+#   egress {
+#     from_port       = 0
+#     to_port         = 0
+#     protocol        = "-1"
+#     cidr_blocks     = ["0.0.0.0/0"]
+#   }
 
-  tags = {
-    Name = "${var.terraform_environment}-default-sg"
-  }
-}
+#   tags = {
+#     Name = "${var.terraform_environment}-default-sg"
+#   }
+# }
 
 resource "aws_security_group" "web" {
   name        = var.vpc.aws_security_groups.web.name
@@ -109,7 +109,7 @@ resource "aws_security_group" "rds" {
 }
 
 resource "aws_security_group" "vpc_endpoint" {
-  name   = "vpc_endpoint"
+  name   = "vpc_endpoint_sg"
   vpc_id = aws_vpc.app_network.id
 
   ingress {

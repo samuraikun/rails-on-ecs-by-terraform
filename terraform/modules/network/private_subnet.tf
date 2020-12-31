@@ -13,10 +13,6 @@ resource "aws_route_table" "app_private" {
   count  = length(aws_subnet.app_private)
   vpc_id = aws_vpc.app_network.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-  }
-
   tags = {
     Name = "${var.terraform_environment}_private_${var.vpc.private_subnets[count.index].availability_zone}"
   }
