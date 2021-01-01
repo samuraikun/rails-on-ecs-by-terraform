@@ -93,11 +93,11 @@ variable "ecs_web" {
 variable "server_secrets" {
   type = list
   default = [
-    "AWS_DEFAULT_REGION",
-    "AWS_SECRET_ACCESS_KEY",
     "RAILS_LOG_TO_STDOUT",
-    "RAILS_MAX_THREADS",
-    "SSM_AGENT_CODE",
-    "SSM_AGENT_ID"
+    "RAILS_MAX_THREADS"
+    # "AWS_DEFAULT_REGION",
+    # "AWS_SECRET_ACCESS_KEY",
+    # "SSM_AGENT_CODE",
+    # "SSM_AGENT_ID"
   ]
 }
