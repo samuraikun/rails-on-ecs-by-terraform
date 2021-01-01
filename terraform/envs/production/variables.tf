@@ -79,13 +79,13 @@ variable "ecs_web" {
     deployment_minimum_healthy_percent = 100
     deployment_maximum_percent         = 200
     health_check_path                  = "/health_check"
-    # scale_out_by_cpu                   = 80
-    # scale_in_by_cpu                    = 30
-    # scale_out_by_memory                = 80
-    # scale_in_by_memory                 = 30
-    # max_capacity                       = 2
-    # min_capacity                       = 1
-    # certificate_arn                    = ""
+    scale_out_by_cpu                   = 80
+    scale_in_by_cpu                    = 30
+    scale_out_by_memory                = 80
+    scale_in_by_memory                 = 30
+    max_capacity                       = 2
+    min_capacity                       = 1
+    certificate_arn                    = ""
     deregistration_delay               = 0
   }
 }
