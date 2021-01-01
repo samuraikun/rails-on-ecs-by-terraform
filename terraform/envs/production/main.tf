@@ -22,3 +22,14 @@ module "network" {
   terraform_environment = "production"
   vpc                   = var.vpc
 }
+
+module "app" {
+  source = "../../modules/app"
+
+  environment         = "production"
+  region              = var.region
+  vpc                 = module.network
+  ecs                 = { web = var.ecs_web }
+  server_envs         = { RAILS_ENV = "production" }
+  server_secrets      = var.server_secrets
+}
