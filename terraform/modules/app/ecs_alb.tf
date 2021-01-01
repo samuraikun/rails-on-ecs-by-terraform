@@ -6,7 +6,7 @@ resource "aws_lb" "app_web" {
   subnets            = [var.vpc.subnet_public[0].id, var.vpc.subnet_public[2].id]
 
   access_logs {
-    bucket  = "app-logs"
+    bucket  = "samuraikun-ecs-sample-app-logs"
     prefix  = "elb"
     enabled = true
   }
