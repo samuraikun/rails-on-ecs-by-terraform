@@ -101,3 +101,10 @@ variable "server_secrets" {
     # "SSM_AGENT_ID"
   ]
 }
+
+variable "database" {
+  type = map
+  default = {
+    instance_class = "db.t2.small"
+  }
+}
