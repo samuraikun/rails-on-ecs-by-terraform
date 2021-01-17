@@ -23,12 +23,17 @@ module "network" {
   vpc                   = var.vpc
 }
 
+module "storage" {
+  source = "../../modules/storage"
+}
+
 module "app" {
   source = "../../modules/app"
 
   environment         = "staging"
   region              = var.region
   vpc                 = module.network
+  s3                  = module.storage
   ecs                 = { web = var.ecs_web }
   server_envs         = { RAILS_ENV = "staging" }
   server_secrets      = var.server_secrets
