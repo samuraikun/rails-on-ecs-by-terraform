@@ -37,7 +37,7 @@ variable "vpc" {
   })
 
   default = {
-    vpc     = "172.16.0.0/12"
+    vpc     = "172.16.0.0/16"
     public_subnets = [
       { cidr_block = "172.16.0.0/24", availability_zone = "ap-northeast-1a", map_public_ip_on_launch = true,  name = "app" },
       { cidr_block = "172.16.1.0/24", availability_zone = "ap-northeast-1a", map_public_ip_on_launch = false, name = "app(RDS)" },
