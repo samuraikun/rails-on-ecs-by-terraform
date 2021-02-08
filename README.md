@@ -19,3 +19,13 @@ $ terraform plan
 # 設定内容反映
 $ terraform apply
 ```
+
+## Features
+
+- [x] Network
+- [x] ECS/Fargate
+- [x] ECS Auto Scaling
+- [x] ALB
+- [ ] Database
+- [ ] Deployment
+- [ ] Batch
