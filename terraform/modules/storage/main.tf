@@ -1,14 +1,19 @@
 data "aws_caller_identity" "self" { }
 
 resource "aws_s3_bucket" "alb_log" {
-  bucket        = "yakuji-alb-log"
+  bucket        = "rails-on-ecs-by-terraform-alb-log"
   force_destroy = true
+}
 
-  lifecycle_rule {
-    enabled = true
+resource "aws_s3_bucket_lifecycle_configuration" "alb_log" {
+  bucket = aws_s3_bucket.alb_log.id
+
+  rule {
+    id = "expire-alb-log"
+    status = "Enabled"
 
     expiration {
-      days = "180"
+      days = 180
     }
   }
 }

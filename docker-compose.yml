@@ -2,7 +2,8 @@ version: "3.9"
 
 services:
   terraform:
-    image: hashicorp/terraform:0.14.3
+    image: hashicorp/terraform:1.5
+    platform: linux/arm/v6
     volumes:
       - ./terraform:/usr/src/terraform
     environment:
@@ -11,3 +12,4 @@ services:
     env_file: docker.env
     command: "/bin/bash"
     entrypoint: ""
+    working_dir: /usr/src/terraform/envs

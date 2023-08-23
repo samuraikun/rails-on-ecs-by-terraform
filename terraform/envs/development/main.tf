@@ -1,5 +1,5 @@
 terraform {
-  required_version = ">= 0.14"
+  required_version = ">= 1.5"
   backend "s3" {
     bucket = "rails-on-ecs-by-terraform-tfstates"
     key    = "terraform.tfstate"
@@ -8,6 +8,7 @@ terraform {
   required_providers {
     aws = {
       source = "hashicorp/aws"
+      version = "~> 5.0"
     }
   }
 }
