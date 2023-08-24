@@ -26,6 +26,6 @@ $ terraform apply
 - [x] ECS/Fargate
 - [x] ECS Auto Scaling
 - [x] ALB
-- [ ] Database
+- [x] Database
 - [ ] Deployment
 - [ ] Batch
