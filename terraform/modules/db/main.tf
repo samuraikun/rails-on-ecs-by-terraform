@@ -4,7 +4,7 @@ variable "database" {}
 
 resource "aws_rds_cluster" "aurora_cluster" {
   cluster_identifier              = "${var.environment}-sample-cluster"
-  engine                          = "aurora"
+  engine                          = "aurora-mysql"
   engine_version                  = "5.7.mysql_aurora.2.09.1"
   availability_zones              = ["ap-northeast-1a", "ap-northeast-1d", "ap-northeast-1c"]
   master_username                 = "root"
@@ -30,7 +30,7 @@ resource "aws_rds_cluster_instance" "aurora_instance" {
   identifier              = "${var.environment}-sample-${count.index}"
   cluster_identifier      = aws_rds_cluster.aurora_cluster.id
   instance_class          = var.database.instance_class
-  engine                  = "aurora"
+  engine                  = "aurora-mysql"
   engine_version          = "5.7.mysql_aurora.2.09.1"
   publicly_accessible     = false
   db_subnet_group_name    = aws_db_subnet_group.sample.name
