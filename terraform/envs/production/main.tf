@@ -39,3 +39,11 @@ module "app" {
   server_envs         = { RAILS_ENV = "production" }
   server_secrets      = var.server_secrets
 }
+
+module "db" {
+  source = "../../modules/db"
+
+  environment = "production"
+  vpc         = module.network
+  database    = var.database
+}
